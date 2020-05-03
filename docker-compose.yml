@@ -1,0 +1,32 @@
+version: '3'
+services:
+  websiteos:
+    image: centos:latest
+    volumes:
+      - webst1:/var/www/html
+    ports:
+      - 8080:80
+    networks:
+            default:
+                    aliases:
+                            - aliasnet
+    restart: always
+  
+  lb:
+    image: centos:latest
+    ports:
+      - 8081:80
+    depends_on:
+      - websiteos
+    volumes:
+      - webst2:/var/www/html
+    networks:
+            default:
+                    aliases:
+                            - aliasnet
+  
+    restart: always
+
+volumes:
+  webst1:
+  webst2:
