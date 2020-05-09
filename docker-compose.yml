@@ -1,7 +1,7 @@
 version: '3'
 services:
   websiteos:
-    image: centos:latest
+    image: webserver
     volumes:
       - webst1:/var/www/html
     ports:
@@ -13,7 +13,7 @@ services:
     restart: always
   
   lb:
-    image: centos:latest
+    image: newwebserver
     ports:
       - 8081:80
     depends_on:
