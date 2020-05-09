@@ -1,7 +1,7 @@
 version: '3'
 services:
   websiteos:
-    image: webserver
+    image: webserver:1
     volumes:
       - webst1:/var/www/html
     ports:
@@ -13,7 +13,7 @@ services:
     restart: always
   
   lb:
-    image: newwebserver
+    image: newwebserver:1
     ports:
       - 8081:80
     depends_on:
